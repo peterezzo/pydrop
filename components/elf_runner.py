@@ -24,9 +24,9 @@ class ELFRunner:
         """
         Create an anonymous in-memory file and write child binary
         """
-        fd_name = fd_name or random.randomint(10,20)
+        fd_name = fd_name or random.randomint(10, 20)
         self.fd = os.memfd_create(self.fd_name, 0)
-        self.memfd_path = f'/proc/self/fd/{fd_name}'
+        self.memfd_path = f'/proc/self/fd/{self.fd}'
         pathlib.Path(self.memfd_path).write_bytes(elf)
 
     def execute(self, args: Optional[list] = None):

